@@ -15,8 +15,8 @@ import blog_pic_14 from './blog_pic_14.png';
 import blog_pic_15 from './blog_pic_15.png';
 import blog_pic_16 from './blog_pic_16.png';
 import facebook_icon from './facebook_icon.png'
-import googleplus_icon from './googleplus_icon.png'
-import twitter_icon from './twitter_icon.png'
+import instagram_icon from './instagram_icon.png'
+import threads_icon from './threads_icon.png'
 import profile_icon from './profile_icon.png'
 import logo from './logo.png'
 import arrow from './arrow.png'
@@ -27,8 +27,8 @@ import upload_area from './upload_area.png'
 
 export const assets = {
     facebook_icon,
-    googleplus_icon,
-    twitter_icon,
+    instagram_icon,
+    threads_icon,
     profile_icon,
     logo,
     arrow,

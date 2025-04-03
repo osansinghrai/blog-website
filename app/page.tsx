@@ -1,8 +1,8 @@
 'use client'
 
-import Bloglist from '@/Components/Bloglist'
-import Footer from '@/Components/Footer'
-import Header from '@/Components/Header'
+import Bloglist from '@/components/Bloglist'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import React from 'react'
 
 export default function Home() {
