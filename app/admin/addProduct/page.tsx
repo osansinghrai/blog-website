@@ -1,10 +1,11 @@
 "use client";
 
-import { assets } from "@/public/Assets/assets";
+import { assets } from "@/public/assets/assets";
 import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const page = () => {
   const [image, setImage] = useState(false);
@@ -14,7 +15,7 @@ const page = () => {
     description: "",
     category: "Startup",
     author: "Alex Bennett",
-    authorImg: "public/assets/author_img.png",
+    authorImg: "/public/assets/author_img.png",
   });
 
   const onChangeHandler = (e: any) => {
@@ -33,9 +34,12 @@ const page = () => {
     formData.append("author", data.author);
     formData.append("authorImg", data.authorImg);
     formData.append("image", image as any);
+    console.log(formData);
     const response = await axios.post("/api/blog", formData);
-    if (response.data.success){
-      alert("Blog added successfully");
+    if (response.data.success) {
+      toast.success(response.data.msg);
+    } else {
+      toast.error("Error: " + response.data.msg);
     }
   };
 

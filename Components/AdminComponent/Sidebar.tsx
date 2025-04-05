@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { assets } from "@/public/Assets/assets";
+import { assets } from "@/public/assets/assets";
 import Link from "next/link";
 
 const Sidebar = () => {

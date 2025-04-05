@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { blog_data } from "@/public/Assets/assets";
+import { blog_data } from "@/public/assets/assets";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import { assets } from "@/public/Assets/assets";
+import { assets } from "@/public/assets/assets";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 

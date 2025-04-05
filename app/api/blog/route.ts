@@ -8,15 +8,24 @@ const loadDB = async () => {
 };
 loadDB();
 
-export async function GET(req: Request) {
-  return NextResponse.json({ msg: "API working" });
+export async function GET(req: Request, res: Response) {
+  return NextResponse.json({
+    success: true,
+    msg: "API working",
+  });
 }
 
-export async function POST(req: Request) {
+export async function POST(req: Request, res: Response) {
   const formData = await req.formData();
   const timeStamp = Date.now();
 
   const image = formData.get("image") as Blob;
+  if (!image || !(image instanceof Blob)) {
+    return NextResponse.json(
+      { success: false, msg: "No valid image uploaded" },
+      { status: 400 }
+    );
+  }
   const imageByteData = await image.arrayBuffer();
   const buffer = Buffer.from(imageByteData);
   const path = `./public/${timeStamp}_${(image as File).name}`;

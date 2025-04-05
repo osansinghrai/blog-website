@@ -1,6 +1,8 @@
 import Sidebar from "@/components/AdminComponent/Sidebar";
 import Image from "next/image";
-import { assets } from "@/public/Assets/assets";
+import { assets } from "@/public/assets/assets";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Props {
   children: React.ReactNode;
@@ -9,6 +11,7 @@ interface Props {
 export default function Layout({ children }: Props) {
   return (
     <div>
+      <ToastContainer theme='dark' limit={3} />
       <div className="flex">
         <Sidebar />
         <div className="flex flex-col w-full ">

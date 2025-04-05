@@ -1,6 +1,6 @@
 import React from 'react'
 import Blogitem from './Blogitem'
-import { blog_data } from '@/public/Assets/assets'
+import { blog_data } from '@/public/assets/assets'
 import { useState } from 'react'
 
 const Bloglist = () => {
