@@ -9,13 +9,14 @@ import "react-toastify/dist/ReactToastify.css";
 
 const page = () => {
   const [image, setImage] = useState(false);
+  const [author_img, setAuthor_img] = useState(false);
 
   const [data, setData] = useState({
     title: "",
     description: "",
     category: "Startup",
-    author: "Alex Bennett",
-    authorImg: "/public/assets/author_img.png",
+    author: "",
+    author_img: "",
   });
 
   const onChangeHandler = (e: any) => {
@@ -32,12 +33,21 @@ const page = () => {
     formData.append("description", data.description);
     formData.append("category", data.category);
     formData.append("author", data.author);
-    formData.append("authorImg", data.authorImg);
+    formData.append("author_img", author_img as any);
     formData.append("image", image as any);
     console.log(formData);
     const response = await axios.post("/api/blog", formData);
     if (response.data.success) {
       toast.success(response.data.msg);
+      setImage(false);
+      setAuthor_img(false);
+      setData({
+        title: "",
+        description: "",
+        category: "Startup",
+        author: "",
+        author_img: "",
+      });
     } else {
       toast.error("Error: " + response.data.msg);
     }
@@ -46,6 +56,12 @@ const page = () => {
   const handleChange = (e: any) => {
     if (e.target.files && e.target.files[0]) {
       setImage(e.target.files[0]);
+    }
+  };
+
+  const handleAuthorChange = (e: any) => {
+    if (e.target.files && e.target.files[0]) {
+      setAuthor_img(e.target.files[0]);
     }
   };
 
@@ -97,7 +113,40 @@ const page = () => {
           <option value="Lifestyle">Lifestyle</option>
         </select>
         <br />
-        <button type="submit" className="mt-6 w-40 h-12 bg-black text-white">
+        <p className="text-xl mt-4">Author Name</p>
+        <input
+          name="author"
+          onChange={onChangeHandler}
+          value={data.author}
+          className="w-full sm:w-[500px] mt-4 px-4 py-3 border"
+          type="text"
+          placeholder="Type here"
+          required
+        />
+        <br />
+        <br />
+        <p className="text-xl">Upload Author Image</p>
+        <label htmlFor="author_img">
+          <Image
+            className="mt-4 mb-10"
+            src={
+              !author_img
+                ? assets.upload_area
+                : URL.createObjectURL(author_img as any)
+            }
+            alt="upload"
+            width={140}
+            height={70}
+          />
+        </label>
+        <input
+          onChange={handleAuthorChange}
+          type="file"
+          id="author_img"
+          hidden
+          required
+        />
+        <button type="submit" className=" w-40 h-12 bg-black text-white">
           Add
         </button>
       </form>
