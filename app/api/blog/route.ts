@@ -9,10 +9,17 @@ const loadDB = async () => {
 loadDB();
 
 export async function GET(req: Request, res: Response) {
-  const blogs = await blogModel.find({});
-  return NextResponse.json({
-    blogs,
-  });
+  const blogId = new URL(req.url).searchParams.get("id");
+
+  if (blogId) {
+    const blog = await blogModel.findById(blogId);
+    return NextResponse.json(blog);
+  } else {
+    const blogs = await blogModel.find({});
+    return NextResponse.json({
+      blogs,
+    });
+  }
 }
 
 export async function POST(req: Request, res: Response) {

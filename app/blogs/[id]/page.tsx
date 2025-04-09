@@ -1,33 +1,34 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { blog_data } from "@/public/assets/assets";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { assets } from "@/public/assets/assets";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import axios from "axios";
 
 const page = () => {
   const params = useParams();
   const [data, setData] = useState(null);
+
   const fetchData = async () => {
-    for (let i = 0; i < blog_data.length; i++) {
-      if (Number(params.id) === blog_data[i].id) {
-        setData(blog_data[i] as any);
-        console.log(blog_data[i]);
-        break;
-      }
-    }
+    const response = await axios.get("/api/blog", {
+      params: {
+        id: params.id,
+      },
+    });
+    setData(response.data);
   };
+
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [params.id]);
   return data ? (
     <>
       <div className="bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
         <div className="flex justify-between items-center">
-          <Link href='/'>
+          <Link href="/">
             <Image
               src={assets.logo}
               alt="logo"

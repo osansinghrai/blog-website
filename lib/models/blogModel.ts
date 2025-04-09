@@ -21,8 +21,7 @@ const Schema = new mongoose.Schema ({
         required: true
     },
     author_img:  {
-        type: String,
-        required: true
+        type: String
     },
     date:  {
         type: Date,
