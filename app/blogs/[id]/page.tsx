@@ -45,7 +45,7 @@ const page = () => {
             {(data as any).title}
           </h1>
           <Image
-            className="mx-auto mt-6 border border-white rounded-full"
+            className="mx-auto mt-6 border border-white rounded-full object-cover w-[100px] h-[100px]"
             src={(data as any).author_img}
             alt="authorImg"
             width={60}
@@ -64,64 +64,11 @@ const page = () => {
           width={1280}
           height={720}
         />
-        <h1 className="my-8 text-[26px] font-semibold">Introduction:</h1>
-        <p>{(data as any).description}</p>
-        <h3 className="my-5 text-[18px] font-semibold">
-          Step 1: Self-reflection and Goal setting
-        </h3>
-        <p className="my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          fugiat. Aut quibusdam molestiae cumque nemo rerum dignissimos omnis
-          molestias blanditiis veritatis sed. Expedita hic harum incidunt illum
-          ipsam, magnam voluptates.
-        </p>
-        <p className="my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          fugiat. Aut quibusdam molestiae cumque nemo rerum dignissimos omnis
-          molestias blanditiis veritatis sed. Expedita hic harum incidunt illum
-          ipsam, magnam voluptates.
-        </p>
 
-        <h3 className="my-5 text-[18px] font-semibold">
-          Step 2: Self-reflection and Goal setting
-        </h3>
-        <p className="my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          fugiat. Aut quibusdam molestiae cumque nemo rerum dignissimos omnis
-          molestias blanditiis veritatis sed. Expedita hic harum incidunt illum
-          ipsam, magnam voluptates.
-        </p>
-        <p className="my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          fugiat. Aut quibusdam molestiae cumque nemo rerum dignissimos omnis
-          molestias blanditiis veritatis sed. Expedita hic harum incidunt illum
-          ipsam, magnam voluptates.
-        </p>
+        <div className="blog-content" dangerouslySetInnerHTML={{__html:(data as any).description}} >
 
-        <h3 className="my-5 text-[18px] font-semibold">
-          Step 3: Self-reflection and Goal setting
-        </h3>
-        <p className="my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          fugiat. Aut quibusdam molestiae cumque nemo rerum dignissimos omnis
-          molestias blanditiis veritatis sed. Expedita hic harum incidunt illum
-          ipsam, magnam voluptates.
-        </p>
-        <p className="my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          fugiat. Aut quibusdam molestiae cumque nemo rerum dignissimos omnis
-          molestias blanditiis veritatis sed. Expedita hic harum incidunt illum
-          ipsam, magnam voluptates.
-        </p>
-
-        <h3 className="my-5 text-[18px] font-semibold">Conclusion</h3>
-        <p className="my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          fugiat. Aut quibusdam molestiae cumque nemo rerum dignissimos omnis
-          molestias blanditiis veritatis sed. Expedita hic harum incidunt illum
-          ipsam, magnam voluptates.
-        </p>
-
+        </div>
+     
         <div className="my-24">
           <p className="text-black font-semibold my-4">
             Share this article on social media
