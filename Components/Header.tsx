@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { assets } from "@/public/assets/assets";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { set } from "mongoose";
 
 const Header = () => {
   const [email, setEmail] = useState("");
