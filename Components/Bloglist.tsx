@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Blogitem from "./Blogitem";
 import { useState } from "react";
 import axios from "axios";
-import { blog_data } from "@/public/assets/assets";
 
 const Bloglist = () => {
   const [menu, setMenu] = useState("All");
