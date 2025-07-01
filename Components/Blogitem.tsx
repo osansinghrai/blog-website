@@ -37,7 +37,7 @@ const Blogitem = ({
         </h5>
         <p
           className="mb-3 text-sm tracking-tight"
-          dangerouslySetInnerHTML={{ __html:description.slice(0, 120) }}
+          dangerouslySetInnerHTML={{ __html: description.slice(0, 120) }}
         ></p>
         <Link
           href={`/blogs/${id}`}

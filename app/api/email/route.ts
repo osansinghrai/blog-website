@@ -18,9 +18,8 @@ export async function POST(req: Request, res: Response) {
 }
 export async function GET(req: Request, res: Response) {
   const emails = await EmailModel.find({});
-    return NextResponse.json({emails});
-
-  }
+  return NextResponse.json({ emails });
+}
 
 export async function DELETE(req: Request, res: Response) {
   const id = new URL(req.url).searchParams.get("id");

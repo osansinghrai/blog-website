@@ -11,7 +11,7 @@ interface Props {
 export default function Layout({ children }: Props) {
   return (
     <div>
-      <ToastContainer theme='dark' limit={3} />
+      <ToastContainer theme="dark" limit={3} />
       <div className="flex">
         <Sidebar />
         <div className="flex flex-col w-full ">

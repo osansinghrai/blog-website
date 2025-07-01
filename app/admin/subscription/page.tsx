@@ -15,7 +15,7 @@ const page = () => {
   const deleteEmail = async (mongoId: any) => {
     const response = await axios.delete("/api/email", {
       params: {
-        id: mongoId
+        id: mongoId,
       },
     });
     if (response.data.success) {

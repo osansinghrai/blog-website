@@ -65,10 +65,11 @@ const page = () => {
           height={720}
         />
 
-        <div className="blog-content" dangerouslySetInnerHTML={{__html:(data as any).description}} >
+        <div
+          className="blog-content"
+          dangerouslySetInnerHTML={{ __html: (data as any).description }}
+        ></div>
 
-        </div>
-     
         <div className="my-24">
           <p className="text-black font-semibold my-4">
             Share this article on social media
