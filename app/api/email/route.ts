@@ -1,5 +1,5 @@
 import { ConnectDB } from "@/lib/config/db";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import EmailModel from "@/lib/models/emailModel";
 
 const LoadDB = async () => {
@@ -7,7 +7,7 @@ const LoadDB = async () => {
 };
 LoadDB();
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: NextRequest, res: NextResponse) {
   const formData = await req.formData();
   const emailData = {
     email: `${formData.get("email")}`,
@@ -16,12 +16,12 @@ export async function POST(req: Request, res: Response) {
   await EmailModel.create(emailData);
   return NextResponse.json({ success: true, msg: "Email subscribed" });
 }
-export async function GET(req: Request, res: Response) {
+export async function GET(req: NextRequest, res: NextResponse) {
   const emails = await EmailModel.find({});
   return NextResponse.json({ emails });
 }
 
-export async function DELETE(req: Request, res: Response) {
+export async function DELETE(req: NextRequest, res: NextResponse) {
   const id = new URL(req.url).searchParams.get("id");
   await EmailModel.findByIdAndDelete(id);
   return NextResponse.json({ success: true, msg: "Email deleted" });

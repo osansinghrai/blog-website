@@ -10,7 +10,7 @@ const loadDB = async () => {
 };
 loadDB();
 
-export async function GET(req: NextRequest, res: Response) {
+export async function GET(req: NextRequest, res: NextResponse) {
   const blogId = new URL(req.url).searchParams.get("id");
 
   if (blogId) {
@@ -24,7 +24,7 @@ export async function GET(req: NextRequest, res: Response) {
   }
 }
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: NextRequest, res: NextResponse) {
   const formData = await req.formData();
   const timeStamp = Date.now();
 
@@ -72,7 +72,7 @@ export async function POST(req: Request, res: Response) {
   return NextResponse.json({ success: true, msg: "blog Added" });
 }
 
-export async function DELETE(req: Request, res: Response) {
+export async function DELETE(req: NextRequest, res: NextResponse) {
   const id = new URL(req.url).searchParams.get("id");
   const blog = await blogModel.findById(id);
   fs.unlink(`./public${blog.image}`, () => {});
