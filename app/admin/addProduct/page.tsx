@@ -1,6 +1,6 @@
 "use client";
 
-import { assets } from "@/public/assets/assets";
+import { assets } from "@/public/asset/assets";
 import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";

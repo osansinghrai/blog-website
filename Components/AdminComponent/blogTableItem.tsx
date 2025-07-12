@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { assets } from "@/public/assets/assets";
+import { assets } from "@/public/asset/assets";
 
 interface props {
   author_img: any;
