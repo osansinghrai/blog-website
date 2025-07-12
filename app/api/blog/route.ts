@@ -1,4 +1,5 @@
 import { ConnectDB } from "@/lib/config/db";
+import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { writeFile } from "fs/promises";
 import blogModel from "@/lib/models/blogModel";
@@ -9,7 +10,7 @@ const loadDB = async () => {
 };
 loadDB();
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: NextRequest, res: Response) {
   const blogId = new URL(req.url).searchParams.get("id");
 
   if (blogId) {
