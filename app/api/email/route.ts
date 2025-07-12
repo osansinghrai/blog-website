@@ -7,7 +7,7 @@ const LoadDB = async () => {
 };
 LoadDB();
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest, res: Response) {
   const formData = await req.formData();
   const emailData = {
     email: `${formData.get("email")}`,
@@ -16,12 +16,12 @@ export async function POST(req: NextRequest, res: NextResponse) {
   await EmailModel.create(emailData);
   return NextResponse.json({ success: true, msg: "Email subscribed" });
 }
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET(req: NextRequest, res: Response) {
   const emails = await EmailModel.find({});
   return NextResponse.json({ emails });
 }
 
-export async function DELETE(req: NextRequest, res: NextResponse) {
+export async function DELETE(req: NextRequest, res: Response) {
   const id = new URL(req.url).searchParams.get("id");
   await EmailModel.findByIdAndDelete(id);
   return NextResponse.json({ success: true, msg: "Email deleted" });
