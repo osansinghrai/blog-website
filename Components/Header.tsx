@@ -42,9 +42,10 @@ const Header = () => {
       <div className="text-center my-8 ">
         <h1 className="text-3xl sm:text-5xl font-medium">Latest Blogs</h1>
         <p className="mt-10 max-w-[740px] m-auto sm:text-base ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi earum
-          animi hic, temporibus in tempora maiores ipsam nisi qui incidunt
-          facere labore maxime neque praesentium inventore magnam. Quo, odio ea!
+          Behind every post is research, respect, and responsibility.
+          We don’t just create content — we craft experiences rooted in authenticity and depth.
+          Our mission is to earn your trust with every word, not just your clicks.
+          Because here, value matters more than virality.
         </p>
         <form
           action=""
