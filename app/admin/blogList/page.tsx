@@ -1,6 +1,6 @@
 "use client";
 
-import BlogTableItem from "@/Components/AdminComponent/BlogTableItem";
+import BlogTableItem from "@/Components/AdminComponent/blogTableItem";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
