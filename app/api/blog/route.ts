@@ -23,6 +23,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
+// image
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
 
